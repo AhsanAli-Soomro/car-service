@@ -69,7 +69,7 @@ export default function Home() {
       </section>
 
       <section id="clients" className="bg-gray-800 text-center py-24 h-screen overflow-hidden">
-      <h1 className="text-4xl text-white font-semibold mb-6 lg:text-5xl">
+        <h1 className="text-4xl text-white font-semibold mb-6 lg:text-5xl">
           <span className="text-indigo-600">Our</span> Clients
         </h1>
         <p className="text-xl text-gray-500 font-medium">We have served numerous satisfied clients with our exceptional car services.</p>
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       <section id="about" className="bg-black py-24 mb-24 h-screen overflow-hidden">
-      <h1 className="text-4xl text-white text-center font-semibold mb-6 lg:text-5xl">
+        <h1 className="text-4xl text-white text-center font-semibold mb-6 lg:text-5xl">
           <span className="text-indigo-600">About</span> Us
         </h1>
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
