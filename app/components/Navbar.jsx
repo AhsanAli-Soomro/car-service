@@ -22,11 +22,11 @@ const Navbar = () => {
         section.scrollIntoView({ behavior: 'smooth' });
       }
       setIsOpen(false);
-    }, 100); // Adjust delay as necessary
+    }, 100);
   };
 
   return (
-    <nav className="text-white fixed w-full z-30 bg-black">
+    <nav className="text-white fixed w-full z-30">
       <div className="container mx-auto p-4 flex justify-between items-center">
         <div className="hidden md:flex w-full justify-center">
           <ul className="flex gap-10 text-xs">
@@ -51,7 +51,7 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden bg-black w-full">
+        <div className="md:hidden w-full">
           <ul className="flex flex-col items-center space-y-4 py-4">
             <li className="cursor-pointer hover:text-gray-500" onClick={() => scrollToSection('hero')}>Home</li>
             <li className="cursor-pointer hover:text-gray-500" onClick={() => scrollToSection('services')}>Our Services</li>
