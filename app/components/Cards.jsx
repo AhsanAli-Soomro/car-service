@@ -1,7 +1,8 @@
-// Cards.js
 "use client";
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Modal from './Modal';
+import Image from 'next/image';
+
 const services = [
   {
     id: 'engine-repair',
@@ -28,23 +29,23 @@ const Cards = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
-  const previousCard = () => {
+  const previousCard = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? services.length - 1 : prevIndex - 1));
-  };
+  }, []);
 
-  const nextCard = () => {
+  const nextCard = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex === services.length - 1 ? 0 : prevIndex + 1));
-  };
+  }, []);
 
-  const handleLearnMore = (service) => {
+  const handleLearnMore = useCallback((service) => {
     setSelectedService(service);
     setShowModal(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setShowModal(false);
     setSelectedService(null);
-  };
+  }, []);
 
   return (
     <main className="max-w-6xl mx-auto pb-36 px-8 relative">
@@ -73,7 +74,7 @@ const Cards = () => {
                 }`}
             >
               <div className="mb-7 pb-7 flex items-center border-b border-gray-300">
-                <img src={service.image} alt={service.title} className="rounded-3xl w-20 h-20" />
+                <Image src={service.image} alt={service.title} className="rounded-3xl w-20 h-20" width={80} height={80} />
                 <div className="ml-5">
                   <span className="block text-2xl font-semibold">{service.title}</span>
                 </div>
@@ -89,7 +90,7 @@ const Cards = () => {
                   onClick={() => handleLearnMore(service)}
                 >
                   Learn more
-                  <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" className="ml-2" />
+                  <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" className="ml-2" alt="arrow right"/>
                 </button>
               </div>
             </div>
