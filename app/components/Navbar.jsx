@@ -26,11 +26,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-white fixed w-full z-30">
-      <div className="container text-center items-center p-4">
-        <div className="hidden md:flex space-x-8">
-          <ul className="flex gap-10 w-full justify-center text-xs space-x-8">
-          <li className="cursor-pointer hover:text-slate-300" onClick={() => scrollToSection('hero')}>Home</li>
+    <nav className="text-white fixed w-full z-30 bg-black">
+      <div className="container mx-auto p-4 flex justify-between items-center">
+        <div className="hidden md:flex w-full justify-center">
+          <ul className="flex gap-10 text-xs">
+            <li className="cursor-pointer hover:text-slate-300" onClick={() => scrollToSection('hero')}>Home</li>
             <li className="cursor-pointer hover:text-slate-300" onClick={() => scrollToSection('services')}>Our Services</li>
             <li className="cursor-pointer hover:text-slate-300" onClick={() => scrollToSection('clients')}>Our Clients</li>
             <li className="cursor-pointer hover:text-slate-300" onClick={() => scrollToSection('about')}>About Us</li>
@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <button onClick={toggleMenu} className="focus:outline-none">
             {isOpen ? (
-              <svg className="h-6 w-6 text-whote" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             ) : (
@@ -51,7 +51,7 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-black w-full">
           <ul className="flex flex-col items-center space-y-4 py-4">
             <li className="cursor-pointer hover:text-gray-500" onClick={() => scrollToSection('hero')}>Home</li>
             <li className="cursor-pointer hover:text-gray-500" onClick={() => scrollToSection('services')}>Our Services</li>

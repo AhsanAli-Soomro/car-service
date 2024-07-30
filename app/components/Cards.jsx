@@ -1,8 +1,7 @@
 // Cards.js
 "use client";
 import { useState } from 'react';
-import Modal from './Modal'; // Correct import path
-
+import Modal from './Modal';
 const services = [
   {
     id: 'engine-repair',
@@ -48,7 +47,7 @@ const Cards = () => {
   };
 
   return (
-    <main className="max-w-6xl mx-auto pb-36 px-8 relative ">
+    <main className="max-w-6xl mx-auto pb-36 px-8 relative">
       <div className="max-w-md mx-auto mb-14 text-center">
         <h1 className="text-4xl text-white font-semibold mb-6 lg:text-5xl">
           <span className="text-indigo-600">Our</span> Services
@@ -60,41 +59,45 @@ const Cards = () => {
 
       <div className="flex flex-col justify-between items-center lg:flex-row lg:items-start relative">
         <button
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white px-4 py-2 rounded hover:bg-blue-700 transition z-20 -ml-10 lg:-ml-16"
           onClick={previousCard}
         >
           {"<"}
         </button>
 
-        {services.map((service, index) => (
-          <div
-            key={service.id}
-            className={`w-full h-full flex-1 p-8 mt-8 order-${index + 1} bg-gray-500 shadow-xl rounded-3xl sm:w-96 lg:w-full lg:mt-0 ${index === currentIndex ? 'scale-110 z-10' : 'scale-75 opacity-50'
-              } transition-transform transform`}
-          >
-            <div className="mb-7 pb-7 flex items-center border-b border-gray-300">
-              <img src={service.image} alt={service.title} className="rounded-3xl w-20 h-20" />
-              <div className="ml-5">
-                <span className="block text-2xl font-semibold">{service.title}</span>
+        <div className="w-full lg:w-auto flex justify-center">
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className={`w-full max-w-sm p-8 mt-8 lg:mt-0 bg-gray-500 shadow-xl rounded-3xl sm:w-96 lg:w-auto transition-transform transform ${index === currentIndex ? 'scale-110 z-10 block' : 'scale-75 opacity-0 lg:opacity-50 hidden lg:block'
+                }`}
+            >
+              <div className="mb-7 pb-7 flex items-center border-b border-gray-300">
+                <img src={service.image} alt={service.title} className="rounded-3xl w-20 h-20" />
+                <div className="ml-5">
+                  <span className="block text-2xl font-semibold">{service.title}</span>
+                </div>
+              </div>
+              <ul className="mb-7 font-medium text-gray-900">
+                <li className="flex text-lg mb-2">
+                  <span className="ml-3 line-clamp-2">{service.description.split('. ')[0]}</span>
+                </li>
+              </ul>
+              <div className="flex justify-center">
+                <button
+                  className="flex justify-center items-center bg-black rounded-xl py-5 px-4 text-center text-white text-xl"
+                  onClick={() => handleLearnMore(service)}
+                >
+                  Learn more
+                  <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" className="ml-2" />
+                </button>
               </div>
             </div>
-            <ul className="mb-7 font-medium text-gray-900">
-              <li className="flex text-lg mb-2">
-                <span className="ml-3 line-clamp-2">{service.description.split('. ')[0]}</span>
-              </li>
-            </ul>
-            <button
-              className="flex justify-center items-center bg-indigo-600 rounded-xl py-5 px-4 text-center text-white text-xl"
-              onClick={() => handleLearnMore(service)}
-            >
-              Learn more
-              <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" className="ml-2" />
-            </button>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <button
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white px-4 py-2 rounded hover:bg-blue-700 transition z-20 -mr-10 lg:-mr-16"
           onClick={nextCard}
         >
           {">"}
